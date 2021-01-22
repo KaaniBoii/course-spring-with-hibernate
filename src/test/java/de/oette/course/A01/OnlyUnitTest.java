@@ -6,7 +6,10 @@ import org.junit.jupiter.api.Test;
 class OnlyUnitTest {
 
     @Test
-    void testWithoutSpring()  {
+    void testWithoutSpring() {
+        SubService subService = new SubService();
+        MainService mainService = new MainService(subService);
 
+        mainService.logMessage();
     }
 }
