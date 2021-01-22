@@ -1,6 +1,7 @@
 package de.oette.course.B07;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
