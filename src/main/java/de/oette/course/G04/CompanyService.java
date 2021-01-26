@@ -18,14 +18,33 @@ public class CompanyService {
     @EventListener(value = ApplicationReadyEvent.class)
     public void onStartup() {
         createCompaniesAndClients();
+        entityManager.flush();
+        entityManager.clear();
         loadFromDatabase();
     }
 
     private void loadFromDatabase() {
+        Company company = entityManager.find(Company.class, 1L);
+        //entityManager.createQuery("select ... JOIN FETCH ");
+        company.getClients().forEach(System.out::println);
 
     }
 
     private void createCompaniesAndClients() {
+        Company company = new Company();
+        entityManager.persist(company);
 
+        createClient(company);
+        createClient(company);
+        createClient(company);
+        createClient(company);
+        createClient(company);
+        createClient(company);
+    }
+
+    private void createClient(Company company) {
+        Client client = new Client();
+        company.addClient(client);
+        client.setCompany(company);
     }
 }

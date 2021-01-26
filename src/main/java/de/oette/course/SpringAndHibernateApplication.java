@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ImportResource;
 
 @SuppressWarnings("SpellCheckingInspection")
 @SpringBootApplication
-@ComponentScan(basePackages = "de.oette.course.F07")
+@ComponentScan(basePackages = "de.oette.course.G05")
 //@EntityScan(basePackages = "de.oette.course.E02")
 //@ImportResource(value = "classpath:deprecated-config.xml")
 public class SpringAndHibernateApplication {

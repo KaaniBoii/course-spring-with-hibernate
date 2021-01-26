@@ -1,12 +1,10 @@
 package de.oette.course.G05;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// @Entity TODO Comment in!
+@Entity
 public class Movie {
 
     @Id
@@ -16,6 +14,7 @@ public class Movie {
     @Column(name = "title")
     private String title;
 
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private List<Actor> actors = new ArrayList<>();
 
     public List<Actor> getActors() {
