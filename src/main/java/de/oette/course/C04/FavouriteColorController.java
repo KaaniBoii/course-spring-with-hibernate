@@ -18,7 +18,8 @@ public class FavouriteColorController {
 
     @PostMapping("/store-color")
     public void getFavouriteColors(@RequestParam String colorName) {
-        colorService.storeColor(colorName);
+        FavouriteColor fColor = colorService.storeColor(colorName);
+        fColor.nameToUpperCase();
     }
 
 

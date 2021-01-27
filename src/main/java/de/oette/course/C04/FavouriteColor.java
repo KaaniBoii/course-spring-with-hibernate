@@ -27,4 +27,8 @@ public class FavouriteColor {
     public String getName() {
         return name;
     }
+
+    public void nameToUpperCase() {
+        this.name = this.name.toUpperCase();
+    }
 }

@@ -1,5 +1,6 @@
 package de.oette.course.I02.rating;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component

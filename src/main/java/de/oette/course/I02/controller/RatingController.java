@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Mac/Linux
  * curl -XPOST http://localhost:8080/rating -H "Content-Type: application/json" -d '{"text":"great product", "nrOfStars":"5"}'
@@ -16,14 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController("/rating")
 public class RatingController {
 
-    private final RatingHandler ratingHandler;
+    private final List<RatingHandler> ratingHandlers;
 
-    public RatingController(RatingHandler ratingHandler) {
-        this.ratingHandler = ratingHandler;
+    public RatingController(List<RatingHandler> ratingHandlers) {
+        this.ratingHandlers = ratingHandlers;
     }
 
     @PostMapping
     public void newRating(@RequestBody Rating rating) {
-        ratingHandler.newRating(rating);
+        ratingHandlers
+                .forEach(rh -> rh.newRating(rating));
     }
 }

@@ -16,7 +16,7 @@ public class I01Service {
 
     @EventListener(value = ApplicationReadyEvent.class)
     public void onStartup() {
-        I01DemoComponent bean = (I01DemoComponent) applicationContext.getBean(I01DemoComponent.class);
+        I01DemoComponent bean = (I01DemoComponent) applicationContext.getBean("demoComponent");
         bean.printHello();
     }
 }

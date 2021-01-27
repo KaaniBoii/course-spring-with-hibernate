@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,8 +15,10 @@ public class FavouriteColorService {
     private EntityManager entityManager;
 
     @Transactional
-    public void storeColor(String colorName) {
-        entityManager.persist(new FavouriteColor(colorName));
+    public FavouriteColor storeColor(String colorName) {
+        FavouriteColor fColor = new FavouriteColor(colorName);
+        entityManager.persist(fColor);
+        return fColor;
     }
 
     @Transactional

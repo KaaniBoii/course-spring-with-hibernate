@@ -29,6 +29,6 @@ class FavouriteColorTest {
         List<FavouriteColor> colorList = body.getFavouriteColorList();
         assertThat(colorList).isNotNull()
                 .extracting(FavouriteColor::getName)
-                .containsExactlyInAnyOrder("green", "blue", "yellow");
+                .containsExactlyInAnyOrder("GREEN", "BLUE", "YELLOW");
     }
 }
